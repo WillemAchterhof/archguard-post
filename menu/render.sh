@@ -15,15 +15,15 @@ render_menu()
 
     printf " Configure your system\n\n"
 
+    printf "\n"
+    printf " Press option key to cycle\n"
+    printf " Press Shift + option key for manual entry\n"
+    printf "\n"
     printf "   [a] Desktop Environment : %s\n" "$MENU_DESKTOP_ENV"
-
     printf "\n"
     printf " Actions\n"
     printf " ────────────────────────────────────────────────────────────────────────────────\n"
     printf "   [y] Install    [z] Exit\n"
     printf "\n"
     printf "================================================================================\n"
-    printf "\n"
-    printf " Press option key to cycle\n"
-    printf " Press Shift + option key for manual entry\n"
 }
