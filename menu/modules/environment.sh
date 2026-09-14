@@ -20,6 +20,10 @@ select_environment()
         skip)
             MENU_DESKTOP_ENV="hyprland"
             ;;
+        *)
+            MENU_DESKTOP_ENV="hyprland"
+            ;;
+
     esac
 }
 
