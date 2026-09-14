@@ -25,5 +25,19 @@ select_environment()
 
 select_environment_custom()
 {
-    read -rp "Desktop Environment: " MENU_DESKTOP_ENV
+    local environment
+
+    while true; do
+        read -rp "Desktop Environment [$MENU_DESKTOP_ENV]: " environment
+
+        # Empty input keeps the current selection.
+        [[ -z "$environment" ]] && return
+
+        if pacman -Si "$environment" &>/dev/null; then
+            MENU_DESKTOP_ENV="$environment"
+            return
+        fi
+
+        printf "Package '%s' was not found. Please enter a valid package.\n" "$environment"
+    done
 }
