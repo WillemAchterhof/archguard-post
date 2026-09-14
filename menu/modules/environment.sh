@@ -30,10 +30,9 @@ select_environment_custom()
     while true; do
         read -rp "Desktop Environment [$MENU_DESKTOP_ENV]: " environment
 
-        # Empty input keeps the current selection.
         [[ -z "$environment" ]] && return
 
-        if pacman -Si "$environment" &>/dev/null; then
+        if pacman -Ss "^${environment}$" | grep -q .; then
             MENU_DESKTOP_ENV="$environment"
             return
         fi
