@@ -13,6 +13,7 @@ render_menu()
     printf " ArchGuard Post-Install\n"
     printf "================================================================================\n"
     printf "\n"
+    printf " Press option key to cycle through options\n"
     printf " Press Shift + option key for manual entry\n"
     printf "\n"
     printf "\n"
