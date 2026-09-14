@@ -1,29 +1,15 @@
 #!/usr/bin/env bash
 
 # ------------------------------------------------------------------------------
-# Desktop Environment
+# Menu Input
 # ------------------------------------------------------------------------------
-# /menu/modules/environment.sh
+# /menu/input.sh
 
-select_environment()
+handle_input()
 {
-    case "$MENU_DESKTOP_ENV" in
-        hyprland)
-            MENU_DESKTOP_ENV="plasma"
-            ;;
-        plasma)
-            MENU_DESKTOP_ENV="gnome"
-            ;;
-        gnome)
-            MENU_DESKTOP_ENV="skip"
-            ;;
-        skip)
-            MENU_DESKTOP_ENV="hyprland"
-            ;;
+    case "$1" in
+        a) select_environment ;;
+        A) select_environment_custom ;;
+        *) printf "Invalid selection.\n" ;;
     esac
-}
-
-select_environment_custom()
-{
-    read -rp "Desktop Environment: " MENU_DESKTOP_ENV
 }
