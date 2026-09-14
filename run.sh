@@ -1,0 +1,1 @@
+printf "Post-installation script is running..."
