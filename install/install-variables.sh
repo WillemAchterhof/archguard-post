@@ -9,7 +9,7 @@
 
 
 # Menu Options
-
+ROOT_DESKTOP="$ROOT_INSTALL/desktop"
 
 # Package Variables
 INSTALL_PACKAGES=""

@@ -3,6 +3,18 @@
 # ------------------------------------------------------------------------------
 # Menu Module Loader
 # ------------------------------------------------------------------------------
-# /menu/menu-source_modules.sh
+# /menu/menu-run.sh
+
+
+# Variables
+MENU_MODULES="$ROOT_MENU/modules"
+
+# Menu Dependencies
+declare -A MENU_OPTIONS
+
 source "$MENU_MODULES/menu-select_custom.sh"
 source "$MENU_MODULES/menu-environment.sh"
+
+# Menu Handling
+source "$ROOT_MENU/menu-input.sh"
+source "$ROOT_MENU/menu-render.sh"

@@ -1,15 +1,25 @@
 #!/usr/bin/env bash
 
 # ------------------------------------------------------------------------------
-# Root Run
+# ArchGuard Post-Install
 # ------------------------------------------------------------------------------
 # /root-run.sh
 
 set -Eeuo pipefail
 
-ROOT_POST="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+# Variables
+ROOT_POST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_MENU="$ROOT_POST/menu"
 
-source "$ROOT_POST/root-source_modules.sh"
+
+# Module Entry Points
+source "$ROOT_MENU/menu-run.sh"
+# source "$ROOT_INSTALL_DESKTOP/run.sh"
+# source "$ROOT_INSTALL_VIRTUALIZATION/run.sh"
+# source "$ROOT_LOAD_CONFIGURATIONS/run.sh"
+
+
+# Run
 
 menu_render
 
@@ -30,7 +40,7 @@ done
 
 case "$key" in
     y)
-        install_desktop
+        # install_desktop
         ;;
     z)
         exit 0
