@@ -5,6 +5,11 @@
 # ------------------------------------------------------------------------------
 # /menu/modules/menu-environment.sh
 
+declare -A MENU_OPTIONS
+
+MENU_OPTIONS[a]="menu_select_environment|Desktop Environment|MENU_DESKTOP_ENV"
+MENU_OPTIONS[A]="menu_select_custom|MENU_DESKTOP_ENV"
+
 menu_select_environment()
 {
     case "$MENU_DESKTOP_ENV" in
@@ -23,24 +28,5 @@ menu_select_environment()
         *)
             MENU_DESKTOP_ENV="hyprland"
             ;;
-
     esac
-}
-
-menu_select_custom()
-{
-    local environment
-
-    while true; do
-        read -rp "Desktop Environment [$MENU_DESKTOP_ENV]: " environment
-
-        [[ -z "$environment" ]] && return
-
-        if pacman -Ss "^${environment}$" | grep -q .; then
-            MENU_DESKTOP_ENV="$environment"
-            return
-        fi
-
-        printf "Package '%s' was not found. Please enter a valid package.\n" "$environment"
-    done
 }
