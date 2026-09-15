@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 # Desktop Environment
 # ------------------------------------------------------------------------------
-# /menu/modules/menu_environment.sh
+# /menu/modules/menu-environment.sh
 
 menu_select_environment()
 {
