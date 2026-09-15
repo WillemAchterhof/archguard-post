@@ -18,4 +18,5 @@ source "$ROOT_MENU/menu-input.sh"
 source "$ROOT_MENU/menu-render.sh"
 
 
-# Next One
+# Install
+source "$ROOT_INSTALL/install-desktop.sh"
