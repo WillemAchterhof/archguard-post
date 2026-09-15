@@ -7,22 +7,7 @@
 
 install_desktop()
 {
-    INSTALL_PACKAGES=""
-
-    case "$MENU_DESKTOP_ENV" in
-        hyprland)
-            INSTALL_PACKAGES+=" hyprland"
-            ;;
-        plasma)
-            INSTALL_PACKAGES+=" plasma"
-            ;;
-        gnome)
-            INSTALL_PACKAGES+=" gnome"
-            ;;
-        skip)
-            return
-            ;;
-    esac
+    INSTALL_PACKAGES+=" $MENU_DESKTOP_ENV"
 
     sudo pacman -S --needed $INSTALL_PACKAGES
 }
