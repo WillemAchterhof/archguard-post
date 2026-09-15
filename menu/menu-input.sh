@@ -10,6 +10,7 @@ menu_handle_input()
     local option="$1"
     local definition
     local function
+    local argument
 
     definition="${MENU_OPTIONS[$option]:-}"
 
@@ -18,7 +19,11 @@ menu_handle_input()
         return
     }
 
-    IFS='|' read -r function _ _ <<< "$definition"
+    IFS='|' read -r function _ argument <<< "$definition"
 
-    "$function"
+    if [[ -n "$argument" ]]; then
+        "$function" "$argument"
+    else
+        "$function"
+    fi
 }
