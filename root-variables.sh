@@ -5,5 +5,5 @@
 # ------------------------------------------------------------------------------
 # /root-variables.sh
 
-MENU_ROOT="$POST_ROOT/menu"
-INSTALL_ROOT="$POST_ROOT/install"
+ROOT_MENU="$ROOT_POST/menu"
+ROOT_INSTALL="$ROOT_POST/install"
