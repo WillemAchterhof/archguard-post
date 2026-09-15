@@ -8,12 +8,14 @@
 # Root
 source "$POST_ROOT/root-variables.sh"
 
-# Menu
 
+# Menu - Dependencies
+source "$MENU_ROOT/menu-variables.sh"
+source "$MENU_ROOT/menu-source_modules.sh"
+
+# Menu - Functions
 source "$MENU_ROOT/menu-input.sh"
 source "$MENU_ROOT/menu-render.sh"
-source "$MENU_ROOT/menu-source_modules.sh"
-source "$MENU_ROOT/menu-variables.sh"
 
 
 # Next One
