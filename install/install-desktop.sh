@@ -7,11 +7,12 @@
 
 install_desktop()
 {
-    INSTALL_PACKAGES+="$MENU_DESKTOP_ENV"
+    INSTALL_PACKAGES="$MENU_DESKTOP_ENV"
 
-    if [[ "$MENU_DESKTOP_ENV" == "hyprland" ]]; then
-        INSTALL_PACKAGES+=" $(<"$ROOT_DESKTOP/hyprland/packages.env")"
-    fi
+    case "$MENU_DESKTOP_ENV" in
+        hyprland) INSTALL_PACKAGES+=" $(<"$ROOT_DESKTOP/hyprland-packages.env")"
+        ;;
+    esac
 
     INSTALL_PACKAGES="${INSTALL_PACKAGES// skip/}"
 

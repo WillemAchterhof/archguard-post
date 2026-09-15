@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 
 # ------------------------------------------------------------------------------
-# Install Variables
+# Install
 # ------------------------------------------------------------------------------
-# /install/install-variables.sh
-
-# Path Variables
+# /install/install-run.sh
 
 
-# Menu Options
+# Variables
 ROOT_DESKTOP="$ROOT_INSTALL/desktop"
 
-# Package Variables
-INSTALL_PACKAGES=""
+# Modules
+source "$ROOT_INSTALL/install-desktop.sh"
