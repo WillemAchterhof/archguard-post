@@ -7,9 +7,18 @@
 
 menu_handle_input()
 {
-    case "$1" in
-        a) menu_select_environment ;;
-        A) menu_select_custom "MENU_DESKTOP_ENV" ;;
-        *) printf "Invalid selection.\n" ;;
-    esac
+    local option="$1"
+    local definition
+    local function
+
+    definition="${MENU_OPTIONS[$option]:-}"
+
+    [[ -n "$definition" ]] || {
+        printf "Invalid selection.\n"
+        return
+    }
+
+    IFS='|' read -r function _ _ <<< "$definition"
+
+    "$function"
 }
