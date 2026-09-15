@@ -18,7 +18,11 @@ menu_select_custom()
 
         [[ -z "$new_value" ]] && return
 
-        printf -v "$variable" '%s' "$new_value"
-        return
+        if pacman -Ss "^${new_value}$" | grep -q .; then
+            printf -v "$variable" '%s' "$new_value"
+            return
+        fi
+
+        printf "Package '%s' was not found. Please enter a valid package.\n" "$new_value"
     done
 }
