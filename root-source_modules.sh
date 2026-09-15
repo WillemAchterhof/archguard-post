@@ -18,5 +18,8 @@ source "$ROOT_MENU/menu-input.sh"
 source "$ROOT_MENU/menu-render.sh"
 
 
-# Install
+# Install - Dependencies
+source "$ROOT_INSTALL/install-variables.sh"
+
+# Install - Functions
 source "$ROOT_INSTALL/install-desktop.sh"
