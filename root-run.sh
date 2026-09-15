@@ -7,9 +7,9 @@
 
 set -Eeuo pipefail
 
-POST_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_POST="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
-source "$POST_ROOT/root-source_modules.sh"
+source "$ROOT_POST/root-source_modules.sh"
 
 menu_render
 
