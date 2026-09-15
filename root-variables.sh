@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # ------------------------------------------------------------------------------
-# Desktop Environment
+# Variables
 # ------------------------------------------------------------------------------
-# /menu/variables.sh
+# /root-variables.sh
 
-MENU_DESKTOP_ENV="hyprland"
+MENU_ROOT="$POST_ROOT/menu"

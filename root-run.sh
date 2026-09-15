@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# /run.sh
+# /root-run.sh
 set -Eeuo pipefail
 
 POST_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
-source "$POST_ROOT/source_modules.sh"
+source "$POST_ROOT/root-source_modules.sh"
 
-render_menu
+menu_render
 
 while true; do
     read -rsn1 key
@@ -19,9 +19,9 @@ while true; do
             exit 0
             ;;
         *)
-            handle_input "$key"
+            menu_handle_input "$key"
             ;;
     esac
 
-    render_menu
+    menu_render
 done

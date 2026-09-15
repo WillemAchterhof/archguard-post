@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
 # ------------------------------------------------------------------------------
-# Menu Module Loader
+# Desktop Environment
 # ------------------------------------------------------------------------------
-# /menu/source_modules.sh
+# /menu/menu-variables.sh
 
-MENU_ROOT="$POST_ROOT/menu"
+# Path Variables
+MENU_MODULES="$MENU_ROOT/modules"
 
-source "$MENU_ROOT/modules/environment.sh"
+# Package Variables
+MENU_DESKTOP_ENV="hyprland"

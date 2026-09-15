@@ -3,13 +3,13 @@
 # ------------------------------------------------------------------------------
 # Menu Input
 # ------------------------------------------------------------------------------
-# /menu/input.sh
+# /menu/menu-input.sh
 
-handle_input()
+menu_handle_input()
 {
     case "$1" in
-        a) select_environment ;;
-        A) select_environment_custom ;;
+        a) menu_select_environment ;;
+        A) menu_select_custom "MENU_DESKTOP_ENV" ;;
         *) printf "Invalid selection.\n" ;;
     esac
 }

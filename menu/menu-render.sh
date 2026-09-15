@@ -3,9 +3,9 @@
 # ==============================================================================
 # ArchGuard Post-Install — Menu Renderer
 # ==============================================================================
-# /menu/render.sh
+# /menu/menu-render.sh
 
-render_menu()
+menu_render_menu()
 {
     clear
 

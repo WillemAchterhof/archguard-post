@@ -3,9 +3,9 @@
 # ------------------------------------------------------------------------------
 # Desktop Environment
 # ------------------------------------------------------------------------------
-# /menu/modules/environment.sh
+# /menu/modules/menu_environment.sh
 
-select_environment()
+menu_select_environment()
 {
     case "$MENU_DESKTOP_ENV" in
         hyprland)
@@ -27,7 +27,7 @@ select_environment()
     esac
 }
 
-select_environment_custom()
+menu_select_custom()
 {
     local environment
 
