@@ -14,7 +14,7 @@ ROOT_MENU="$ROOT_POST/menu"
 
 # Module Entry Points
 source "$ROOT_MENU/menu-run.sh"
-# source "$ROOT_INSTALL_DESKTOP/run.sh"
+source "$ROOT_INSTALL_DESKTOP/run.sh"
 # source "$ROOT_INSTALL_VIRTUALIZATION/run.sh"
 # source "$ROOT_LOAD_CONFIGURATIONS/run.sh"
 
