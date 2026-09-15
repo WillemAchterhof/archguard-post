@@ -30,7 +30,7 @@ done
 
 case "$key" in
     y)
-        install_environment
+        install_desktop
         ;;
     z)
         exit 0
