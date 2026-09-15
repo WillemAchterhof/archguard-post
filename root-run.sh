@@ -10,11 +10,12 @@ set -Eeuo pipefail
 # Variables
 ROOT_POST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_MENU="$ROOT_POST/menu"
+ROOT_MENU="$ROOT_POST/install"
 
 
 # Module Entry Points
 source "$ROOT_MENU/menu-run.sh"
-source "$ROOT_INSTALL_DESKTOP/run.sh"
+source "$ROOT_INSTALL/install-run.sh"
 # source "$ROOT_INSTALL_VIRTUALIZATION/run.sh"
 # source "$ROOT_LOAD_CONFIGURATIONS/run.sh"
 
