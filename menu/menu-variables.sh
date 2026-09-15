@@ -6,7 +6,7 @@
 # /menu/menu-variables.sh
 
 # Path Variables
-MENU_MODULES="$MENU_ROOT/modules"
+MENU_MODULES="$ROOT_MENU/modules"
 
 # Menu Options
 declare -A MENU_OPTIONS
