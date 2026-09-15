@@ -5,8 +5,8 @@
 # ------------------------------------------------------------------------------
 # /menu/modules/menu-environment.sh
 
-MENU_OPTIONS[a]="menu_select_environment|Desktop Environment"
-MENU_OPTIONS[A]="menu_select_custom|MENU_DESKTOP_ENV"
+MENU_OPTIONS[a]="menu_select_environment|Desktop Environment|"
+MENU_OPTIONS[A]="menu_select_custom|Desktop Environment (custom)|MENU_DESKTOP_ENV"
 
 menu_select_environment()
 {
