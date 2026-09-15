@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
+
+# ------------------------------------------------------------------------------
+# Root Run
+# ------------------------------------------------------------------------------
 # /root-run.sh
+
 set -Eeuo pipefail
 
 POST_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
@@ -12,11 +17,8 @@ while true; do
     read -rsn1 key
 
     case "$key" in
-        y)
+        y|z)
             break
-            ;;
-        z)
-            exit 0
             ;;
         *)
             menu_handle_input "$key"
@@ -25,3 +27,12 @@ while true; do
 
     menu_render
 done
+
+case "$key" in
+    y)
+        install_environment
+        ;;
+    z)
+        exit 0
+        ;;
+esac
