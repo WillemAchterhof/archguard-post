@@ -41,7 +41,7 @@ done
 
 case "$key" in
     y)
-        # install_desktop
+        install_desktop
         ;;
     z)
         exit 0
