@@ -15,20 +15,20 @@ MENU_KEY="b"
 menu_select_terminal()
 {
     case "$MENU_TERMINAL" in
+        alacritty)
+            MENU_TERMINAL="kitty"
+            ;;
         kitty)
+            MENU_TERMINAL="konsole"
+            ;;
+        konsole)
+            MENU_TERMINAL="ptyxis"
+            ;;
+        ptyxis)
             MENU_TERMINAL="alacritty"
             ;;
-        alacritty)
-            MENU_TERMINAL="foot"
-            ;;
-        foot)
-            MENU_TERMINAL="skip"
-            ;;
-        skip)
-            MENU_TERMINAL="kitty"
-            ;;
         *)
-            MENU_TERMINAL="kitty"
+            MENU_TERMINAL="alacritty"
             ;;
     esac
 }
