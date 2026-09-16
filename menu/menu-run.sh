@@ -11,7 +11,7 @@ MENU_MODULES="$ROOT_MENU/modules"
 
 # Menu Dependencies
 declare -A MENU_OPTIONS
-MENU_ORDER=(a)
+MENU_ORDER=(a b)
 
 source "$MENU_MODULES/menu-select_custom.sh"
 source "$MENU_MODULES/menu-environment.sh"
