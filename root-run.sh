@@ -27,7 +27,9 @@ menu_render
 while true; do
     key=""
 
-    read -rsn1 key || true
+    if ! read -rsn1 key; then
+        continue
+    fi
 
     case "$key" in
         y|z)
