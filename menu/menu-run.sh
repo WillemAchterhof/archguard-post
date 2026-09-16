@@ -11,7 +11,6 @@ MENU_MODULES="$ROOT_MENU/modules"
 
 # Menu Dependencies
 declare -A MENU_OPTIONS
-MENU_ORDER=(a b)
 
 for module in "$MENU_MODULES"/menu-*.sh; do
     source "$module"
