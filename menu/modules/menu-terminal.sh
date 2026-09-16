@@ -16,15 +16,15 @@ menu_select_terminal()
 {
     case "$MENU_TERMINAL" in
         alacritty)
-            MENU_TERMINAL="kitty"
-            ;;
-        kitty)
             MENU_TERMINAL="konsole"
             ;;
         konsole)
-            MENU_TERMINAL="ptyxis"
+            MENU_TERMINAL="gnome-terminal"
             ;;
-        ptyxis)
+        gnome-terminal)
+            MENU_TERMINAL="skip"
+            ;;
+        skip)
             MENU_TERMINAL="alacritty"
             ;;
         *)

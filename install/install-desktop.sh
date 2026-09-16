@@ -9,12 +9,26 @@ install_desktop()
 {
     INSTALL_PACKAGES="$MENU_DESKTOP_ENV"
 
+
     case "$MENU_DESKTOP_ENV" in
         hyprland) INSTALL_PACKAGES+=" $(<"$ROOT_DESKTOP/hyprland-packages.env")"
         ;;
         skip) INSTALL_PACKAGES=""
         ;;
     esac
+
+
+    case "$MENU_HYPERVISOR" in
+        kvm)
+        INSTALL_PACKAGES+=" $(<"$ROOT_DESKTOP/hypervisor-packages.env")"
+        ;;
+        virtualbox)
+        INSTALL_PACKAGES+=" virtualbox virtualbox-host-dkms"
+        ;;
+    esac
+
+
+    INSTALL_PACKAGES+=" $(<"$ROOT_DESKTOP/extra-packages.env")"
 
     INSTALL_PACKAGES="${INSTALL_PACKAGES// skip/}"
 
