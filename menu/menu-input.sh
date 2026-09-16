@@ -14,7 +14,7 @@ menu_handle_input()
     local description
     local argument
 
-    [[ -n "$option" ]] || return
+    [[ -n "$option" ]] || return 0
 
     for menu_option in "${MENU_ORDER[@]}"; do
         case "$option" in
