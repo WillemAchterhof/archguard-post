@@ -26,7 +26,9 @@ menu_render()
     for option in "${MENU_ORDER[@]}"; do
         definition="${MENU_OPTIONS["$option"]:-}"
 
-        [[ -n "$definition" ]] || continue
+    definition="${MENU_OPTIONS["$option"]:-}"
+
+    [[ -n "$definition" ]] || return
 
         IFS='|' read -r function description variable <<< "$definition"
 
