@@ -24,7 +24,8 @@ menu_render()
     printf "\n"
 
     for option in "${MENU_ORDER[@]}"; do
-        definition="${MENU_OPTIONS[$option]:-}"
+        definition="${MENU_OPTIONS["$option"]:-}"
+        # definition="${MENU_OPTIONS[$option]:-}"
 
         [[ -n "$definition" ]] || continue
 
