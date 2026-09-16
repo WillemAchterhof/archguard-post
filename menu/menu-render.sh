@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# ==============================================================================
-# ArchGuard Post-Install — Menu Renderer
-# ==============================================================================
+# ------------------------------------------------------------------------------
+# Menu Renderer
+# ------------------------------------------------------------------------------
 # /menu/menu-render.sh
 
 menu_render()
@@ -16,8 +16,24 @@ menu_render()
     printf " Press option key to cycle through options\n"
     printf " Press Shift + option key for manual entry\n"
     printf "\n"
-    printf "\n"
-    printf "   [a] Desktop Environment : %s\n" "$MENU_DESKTOP_ENV"
+
+    for option in "${MENU_ORDER[@]}"; do
+        definition="${MENU_OPTIONS[$option]:-}"
+
+        [[ -n "$definition" ]] || continue
+
+        local function
+        local description
+        local variable
+
+        IFS='|' read -r function description variable <<< "$definition"
+
+        printf "   [%s] %-25s : %s\n" \
+            "$option" \
+            "$description" \
+            "${!variable}"
+    done
+
     printf "\n"
     printf "\n"
     printf " Actions\n"
