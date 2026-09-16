@@ -7,13 +7,11 @@
 
 menu_render()
 {
-    local option="$1"
+    local option
     local definition
     local function
     local description
     local variable
-
-    [[ -n "$option" ]] || return
 
     clear
 
