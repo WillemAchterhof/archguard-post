@@ -15,6 +15,7 @@ MENU_ORDER=(a b)
 
 source "$MENU_MODULES/menu-select_custom.sh"
 source "$MENU_MODULES/menu-environment.sh"
+source "$MENU_MODULES/menu-terminal.sh"
 
 # Menu Handling
 source "$ROOT_MENU/menu-input.sh"
