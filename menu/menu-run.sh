@@ -13,9 +13,16 @@ MENU_MODULES="$ROOT_MENU/modules"
 declare -A MENU_OPTIONS
 MENU_ORDER=(a b)
 
-source "$MENU_MODULES/menu-select_custom.sh"
-source "$MENU_MODULES/menu-environment.sh"
-source "$MENU_MODULES/menu-terminal.sh"
+for module in "$MENU_MODULES"/menu-*.sh; do
+    source "$module"
+    MENU_ORDER+=("$MENU_KEY")
+done
+
+
+# Sort Menu Order
+mapfile -t MENU_ORDER < <(
+    printf '%s\n' "${MENU_ORDER[@]}" | sort
+)
 
 # Menu Handling
 source "$ROOT_MENU/menu-input.sh"

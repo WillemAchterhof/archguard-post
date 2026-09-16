@@ -10,6 +10,8 @@ MENU_DESKTOP_ENV="hyprland"
 MENU_OPTIONS[a]="menu_select_environment|Desktop Environment|MENU_DESKTOP_ENV"
 MENU_OPTIONS[A]="menu_select_custom|Desktop Environment (custom)|MENU_DESKTOP_ENV"
 
+MENU_KEY="a"
+
 menu_select_environment()
 {
     case "$MENU_DESKTOP_ENV" in
