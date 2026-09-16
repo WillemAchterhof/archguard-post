@@ -8,6 +8,7 @@
 menu_handle_input()
 {
     local option="$1"
+    local menu_option
     local definition
     local function
     local description
@@ -15,12 +16,14 @@ menu_handle_input()
 
     [[ -n "$option" ]] || return
 
-    definition="${MENU_OPTIONS["$option"]:-}"
+    for menu_option in "${MENU_ORDER[@]}"; do
+        if [[ "$option" == "$menu_option" || "$option" == "${menu_option^^}" ]]; then
+            definition="${MENU_OPTIONS["$option"]:-}"
+            break
+        fi
+    done
 
-    [[ -n "$definition" ]] || {
-        printf "Invalid selection.\n"
-        return
-    }
+    [[ -n "$definition" ]] || return
 
     IFS='|' read -r function description argument <<< "$definition"
 

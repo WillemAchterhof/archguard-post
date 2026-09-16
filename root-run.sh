@@ -32,7 +32,7 @@ while true; do
             break
             ;;
         *)
-            continue
+            menu_handle_input "$key"
             ;;
     esac
 
