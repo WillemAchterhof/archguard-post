@@ -17,10 +17,12 @@ menu_handle_input()
     [[ -n "$option" ]] || return
 
     for menu_option in "${MENU_ORDER[@]}"; do
-        if [[ "$option" == "$menu_option" || "$option" == "${menu_option^^}" ]]; then
-            definition="${MENU_OPTIONS["$option"]:-}"
-            continue
-        fi
+        case "$option" in
+            "$menu_option"|${menu_option^^})
+                definition="${MENU_OPTIONS["$option"]:-}"
+                break
+                ;;
+        esac
     done
 
     [[ -n "$definition" ]] || return
