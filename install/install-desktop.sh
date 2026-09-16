@@ -12,7 +12,7 @@ install_desktop()
     case "$MENU_DESKTOP_ENV" in
         hyprland) INSTALL_PACKAGES+=" $(<"$ROOT_DESKTOP/hyprland-packages.env")"
         ;;
-        skip) INSTALL_PACKAGES+=""
+        skip) INSTALL_PACKAGES=""
         ;;
     esac
 
