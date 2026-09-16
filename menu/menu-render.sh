@@ -7,7 +7,7 @@
 
 menu_render()
 {
-    local option
+    local option="$1"
     local definition
     local function
     local description
