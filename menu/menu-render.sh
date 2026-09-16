@@ -7,6 +7,12 @@
 
 menu_render()
 {
+    local option
+    local definition
+    local function
+    local description
+    local variable
+
     clear
 
     printf "================================================================================\n"
@@ -21,10 +27,6 @@ menu_render()
         definition="${MENU_OPTIONS[$option]:-}"
 
         [[ -n "$definition" ]] || continue
-
-        local function
-        local description
-        local variable
 
         IFS='|' read -r function description variable <<< "$definition"
 
