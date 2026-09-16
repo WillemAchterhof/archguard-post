@@ -25,7 +25,7 @@ menu_handle_input()
         esac
     done
 
-    [[ -n "$definition" ]] || return
+    [[ -n "$definition" ]] || return 0
 
     IFS='|' read -r function description argument <<< "$definition"
 
