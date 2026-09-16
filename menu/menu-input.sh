@@ -13,7 +13,8 @@ menu_handle_input()
     local description
     local argument
 
-    # definition="${MENU_OPTIONS[$option]:-}"
+    [[-n "$option" ]] || return
+
     definition="${MENU_OPTIONS["$option"]:-}"
 
     [[ -n "$definition" ]] || {
