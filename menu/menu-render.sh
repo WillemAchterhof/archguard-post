@@ -8,6 +8,7 @@
 menu_render()
 {
     local option
+    [[ -n "$option" ]] || return
     local definition
     local function
     local description
