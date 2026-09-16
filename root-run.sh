@@ -25,7 +25,8 @@ source "$ROOT_INSTALL/install-run.sh"
 menu_render
 
 while true; do
-    read -rsn1 key
+    #IFS= read -rsn1 key || continue
+    IFS= read -rsn1 key || continue
 
     case "$key" in
         y|z)
