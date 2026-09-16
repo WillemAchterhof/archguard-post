@@ -9,7 +9,7 @@ menu_handle_input()
 {
     local option="$1"
     local menu_option
-    local definition
+    local definition=""
     local function
     local description
     local argument
