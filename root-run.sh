@@ -25,8 +25,10 @@ source "$ROOT_INSTALL/install-run.sh"
 menu_render
 
 while true; do
-    IFS= read -rsn1 key || continue
-    
+    read -rsn1 key || {
+        key=""
+    }
+
     case "$key" in
         y|z)
             break
@@ -47,3 +49,4 @@ case "$key" in
         exit 0
         ;;
 esac
+
