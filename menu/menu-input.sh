@@ -19,7 +19,7 @@ menu_handle_input()
     for menu_option in "${MENU_ORDER[@]}"; do
         if [[ "$option" == "$menu_option" || "$option" == "${menu_option^^}" ]]; then
             definition="${MENU_OPTIONS["$option"]:-}"
-            break
+            continue
         fi
     done
 
