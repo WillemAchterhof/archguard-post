@@ -19,9 +19,9 @@ menu_select_file_explorer()
             MENU_FILE_EXPLORER="dolphin"
             ;;
         dolphin)
-            MENU_FILE_EXPLORER="files"
+            MENU_FILE_EXPLORER="nautilus"
             ;;
-        files)
+        nautilus)
             MENU_FILE_EXPLORER="skip"
             ;;
         skip)
