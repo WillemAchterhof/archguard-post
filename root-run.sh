@@ -50,7 +50,7 @@ case "$key" in
         install_desktop
         ;;
     z)
-        exit 0
+        printf "[*] Post-Install skipped.\n"
         ;;
 esac
 
