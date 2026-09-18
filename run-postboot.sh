@@ -1,81 +1,83 @@
 #!/usr/bin/env bash
-# ==============================================================================
-#  Arch Secure Installer V2.6 — Postboot Runner
-# ==============================================================================
-#  lib/postboot/run-postboot.sh
-#
-#  Loads all postboot components recursively and executes the final actions.
-# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# ArchGuard Postboot
+# ------------------------------------------------------------------------------
+# /opt/archguard/run-postboot.sh
 
 set -Eeuo pipefail
 
+if [[ $EUID -ne 0 ]]; then
+    exec sudo "$0" "$@"
+fi
+
 POSTBOOT_ROOT="/opt/archguard"
+AG_WIFI_ENV="$POSTBOOT_ROOT/config/base/wifi.env"
+POST_INSTALL="$POSTBOOT_ROOT/post_install"
+POST_INSTALL_URL="https://github.com/WillemAchterhof/archguard-post-install.git"
 
-# ==============================================================================
-#  LOAD ALL POSTBOOT COMPONENTS
-# ==============================================================================
+# ------------------------------------------------------------------------------
+# Internet
+# ------------------------------------------------------------------------------
 
-while IFS= read -r -d '' file; do
-    [[ "$file" == "$POSTBOOT_ROOT/run-postboot.sh" ]] && continue
-
-    source "$file"
-done < <(
-    find "$POSTBOOT_ROOT" \
-        -type f \
-        -name '*.sh' \
-        -print0
-)
-
-
-read -r -p 'Launch ArchGuard Post-Install configuration? [Y/n]: ' answer < /dev/tty
-
-# ==============================================================================
-#  BASE POSTBOOT ACTIONS
-# ==============================================================================
-#
-base_connectivity
-
-# ==============================================================================
-#  Setting up USBGuard
-# ==============================================================================
-
-base_usbguard
-
-# ==============================================================================
-#  OPTIONAL POSTBOOT
-# ==============================================================================
-
-ask_post_install()
+check_internet()
 {
-    case "${answer,,}" in
-        ""|y|yes)
-            printf "Installing ArchGuard Post-Install..."
-
-            git clone \
-                "https://github.com/WillemAchterhof/archguard-post-install.git" \
-                "$POSTBOOT_ROOT/post_install"
-
-            chmod +x "$POSTBOOT_ROOT/post_install/root-run.sh"
-            "$POSTBOOT_ROOT/post_install/root-run.sh"
-            ;;
-
-        *)
-            printf "Post-Install skipped."
-            ;;
-    esac
+    timeout 5 ping -c 1 -W 2 1.1.1.1 >/dev/null 2>&1
 }
 
-ask_post_install
+connectivity()
+{
+    # Already connected
+    if check_internet; then
+        return 0
+    fi
 
-# ==============================================================================
-#  TPM ENROLLMENT
-# ==============================================================================
-sudo systemctl enable sddm
-base_enroll_tpm
-base_verify_tpm
+    printf "[!] No internet connection detected.\n"
 
-# ==============================================================================
-#  CLEANUP
-# ==============================================================================
+    # Try saved Wi-Fi
+    if [[ -f "$AG_WIFI_ENV" ]]; then
+        printf "[*] Trying saved Wi-Fi configuration...\n"
 
-clean_postboot "${SUDO_USER:-$(whoami)}"
+        # shellcheck disable=SC1090
+        source "$AG_WIFI_ENV"
+
+        if [[ -n "${AG_WIFI_SSID:-}" && -n "${AG_WIFI_PASSWORD:-}" ]]; then
+            nmcli device wifi connect \
+                "$AG_WIFI_SSID" \
+                password "$AG_WIFI_PASSWORD" >/dev/null 2>&1
+
+            sleep 3
+        fi
+
+        unset AG_WIFI_PASSWORD
+    fi
+
+    # Check again
+    if check_internet; then
+        return 0
+    fi
+
+    printf "\n"
+    printf "[!] Unable to establish an internet connection.\n"
+    printf "[!] Use nmcli to connect to a network or plug in a cable.\n"
+
+    exit 1
+}
+
+# ------------------------------------------------------------------------------
+# Post-Install
+# ------------------------------------------------------------------------------
+
+connectivity
+
+printf "[*] Downloading ArchGuard Post-Install...\n"
+
+git clone \
+    "$POST_INSTALL_URL" \
+    "$POST_INSTALL"
+
+chmod +x "$POST_INSTALL/root-run.sh"
+
+printf "[*] Starting ArchGuard Post-Install...\n"
+
+exec "$POST_INSTALL/root-run.sh"
