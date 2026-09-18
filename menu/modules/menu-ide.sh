@@ -16,9 +16,9 @@ menu_select_ide()
 {
     case "$MENU_IDE" in
         nvim)
-            MENU_IDE="code-oss"
+            MENU_IDE="code"
             ;;
-        code-oss)
+        code)
             MENU_IDE="skip"
             ;;
         skip)
