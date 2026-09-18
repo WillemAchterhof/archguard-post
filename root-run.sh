@@ -65,7 +65,7 @@ case "$key" in
                 ;;
             *)
                 printf "[*] Postboot cleanup skipped.\n"
-                sudo rm -rf -- /opt/archguard/post-install/
+                rm -rf -- /opt/archguard/post_install/
                 ;;
         esac
         ;;
