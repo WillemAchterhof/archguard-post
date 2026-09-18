@@ -48,11 +48,24 @@ done
 case "$key" in
     y)
         install_desktop
+        configure_desktop
+        # ...
+        cleanup_postboot "${SUDO_USER:-$(whoami)}"
         ;;
+
     z)
         printf "[*] Post-Install skipped.\n"
+        printf "Do you want to cleanup postboot? [y/N] "
+
+        read -r cleanup
+
+        case "${cleanup,,}" in
+            y|yes)
+                cleanup_postboot "${SUDO_USER:-$(whoami)}"
+                ;;
+            *)
+                printf "[*] Postboot cleanup skipped.\n"
+                ;;
+        esac
         ;;
 esac
-
-# Cleanup
-cleanup_postboot "${SUDO_USER:-$(whoami)}"
