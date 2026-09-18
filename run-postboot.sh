@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 # ArchGuard Postboot
 # ------------------------------------------------------------------------------
-# /opt/archguard/run-postboot.sh
+# /run-postboot.sh
 
 set -Eeuo pipefail
 
@@ -11,7 +11,8 @@ if [[ $EUID -ne 0 ]]; then
     exec sudo "$0" "$@"
 fi
 
-POSTBOOT_ROOT="/opt/archguard"
+export POSTBOOT_ROOT="/opt/archguard"
+
 AG_WIFI_ENV="$POSTBOOT_ROOT/config/base/wifi.env"
 POST_INSTALL="$POSTBOOT_ROOT/post_install"
 POST_INSTALL_URL="https://github.com/WillemAchterhof/archguard-post-install.git"

@@ -8,16 +8,18 @@
 set -Eeuo pipefail
 
 # Variables
-ROOT_POST="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_POST="$POSTBOOT_ROOT/post_install"
 ROOT_MENU="$ROOT_POST/menu"
 ROOT_INSTALL="$ROOT_POST/install"
+ROOT_CONFIG="$ROOT_POST/config"
+ROOT_CLEANUP="$ROOT_POST/cleanup"
 
 
 # Module Entry Points
 source "$ROOT_MENU/menu-run.sh"
 source "$ROOT_INSTALL/install-run.sh"
-# source "$ROOT_INSTALL_VIRTUALIZATION/run.sh"
-# source "$ROOT_LOAD_CONFIGURATIONS/run.sh"
+source "$ROOT_CONFIG/config-run.sh"
+source "$ROOT_CLEANUP/cleanup-run.sh"
 
 
 # Run
@@ -52,3 +54,5 @@ case "$key" in
         ;;
 esac
 
+# Cleanup
+cleanup_postboot "${SUDO_USER:-$(whoami)}"
