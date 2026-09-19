@@ -9,7 +9,7 @@ source "$ROOT_CONFIG/config-usbguard.sh"
 
 # Run
 
-configure_post_install()
+configure_desktop()
 {
     config_usbguard
 }
