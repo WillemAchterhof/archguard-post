@@ -12,4 +12,5 @@ source "$ROOT_CONFIG/config-usbguard.sh"
 configure_desktop()
 {
     config_usbguard
+    systemctl enable sddm.service libvirtd.service
 }
