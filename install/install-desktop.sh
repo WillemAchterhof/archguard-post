@@ -5,7 +5,7 @@
 # ------------------------------------------------------------------------------
 # /install/install-desktop.sh
 
-install_desktop()
+configure_desktop()
 {
     INSTALL_PACKAGES="$MENU_DESKTOP_ENV"
 
