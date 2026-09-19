@@ -16,5 +16,5 @@ CONFIG_USBGUARD="$POSTBOOT_ROOT/config/usbguard"
 
 configure_post_install()
 {
-    # config_usbguard
+    config_usbguard
 }
