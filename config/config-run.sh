@@ -19,7 +19,7 @@ configure_desktop()
     config_usbguard
     config_toolkit
     xdg-user-dirs-update
-    restore-configs
+    restore_configs
 
     systemctl enable sddm.service
     systemctl enable libvirtd.service
