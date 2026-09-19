@@ -12,8 +12,7 @@ source "$ROOT_CONFIG/config-usbguard.sh"
 cconfigure_desktop()
 {
     config_usbguard
-    
-    "$toolkit/archguard-toolkit.sh" --initialize
+    config_toolkit
     
     copy_desktop_config_files
 

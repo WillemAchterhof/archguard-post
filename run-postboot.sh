@@ -15,7 +15,7 @@ export POSTBOOT_ROOT="/opt/archguard"
 
 AG_WIFI_ENV="$POSTBOOT_ROOT/config/base/wifi.env"
 POST_INSTALL="$POSTBOOT_ROOT/post_install"
-POST_INSTALL_URL="https://github.com/WillemAchterhof/archguard-post-install.git"
+POST_INSTALL_URL="https://github.com/WillemAchterhof/archguard-install.git"
 
 # ------------------------------------------------------------------------------
 # Internet
