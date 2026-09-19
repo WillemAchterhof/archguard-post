@@ -7,7 +7,7 @@
 
 
 # Variables
-CONFIG_USBGUARD="$POSTBOOT_ROOT/config/usbguard"
+CONFIG_USBGUARD="$ROOT_CONFIG/usbguard"
 
 # Module Entry Points
 "$CONFIG_USBGUARD/config-usbguard.sh"
