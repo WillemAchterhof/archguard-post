@@ -2,7 +2,7 @@
 # ==============================================================================
 #  Arch Secure Installer — Postboot Cleanup
 # ==============================================================================
-#  /finish/finish_cleanup.sh
+#  /finish/finish-cleanup.sh
 
 set -Eeuo pipefail
 

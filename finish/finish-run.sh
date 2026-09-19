@@ -6,4 +6,4 @@
 
 
 
- source "ROOT_FINISH/finish_cleanup.sh"
+ source "$ROOT_FINISH/finish-cleanup.sh"
