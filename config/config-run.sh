@@ -5,12 +5,7 @@
 # ------------------------------------------------------------------------------
 # /config/config-run.sh
 
-
-# Variables
-CONFIG_USBGUARD="$ROOT_CONFIG/usbguard"
-
-# Module Entry Points
-source "$CONFIG_USBGUARD/config-usbguard.sh"
+source "$ROOT_CONFIG/config-usbguard.sh"
 
 # Run
 
