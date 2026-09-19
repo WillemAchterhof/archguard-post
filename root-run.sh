@@ -47,8 +47,8 @@ done
 
 case "$key" in
     y)
-        # install_desktop
-        # configure_desktop
+        install_desktop
+        configure_desktop
         # ...
         finish-tpm
         finish_cleanup "${SUDO_USER:-$(whoami)}"
