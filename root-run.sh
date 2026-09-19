@@ -12,14 +12,14 @@ ROOT_POST="$POSTBOOT_ROOT/post_install"
 ROOT_MENU="$ROOT_POST/menu"
 ROOT_INSTALL="$ROOT_POST/install"
 ROOT_CONFIG="$ROOT_POST/config"
-ROOT_CLEANUP="$ROOT_POST/cleanup"
+ROOT_FINISH="$ROOT_POST/finish"
 
 
 # Module Entry Points
 source "$ROOT_MENU/menu-run.sh"
 source "$ROOT_INSTALL/install-run.sh"
 source "$ROOT_CONFIG/config-run.sh"
-source "$ROOT_CLEANUP/cleanup-run.sh"
+source "$ROOT_FINISH/finish-run.sh"
 
 
 # Run
@@ -50,7 +50,7 @@ case "$key" in
         install_desktop
         configure_desktop
         # ...
-        cleanup_postboot "${SUDO_USER:-$(whoami)}"
+        finish_cleanup "${SUDO_USER:-$(whoami)}"
         ;;
 
     z)
@@ -61,7 +61,7 @@ case "$key" in
 
         case "${cleanup,,}" in
             y|yes)
-                cleanup_postboot "${SUDO_USER:-$(whoami)}"
+                finish_cleanup "${SUDO_USER:-$(whoami)}"
                 ;;
             *)
                 printf "[*] Postboot cleanup skipped.\n"

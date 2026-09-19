@@ -2,7 +2,7 @@
 # ==============================================================================
 #  Arch Secure Installer — Postboot Cleanup
 # ==============================================================================
-#  /cleanup/cleanup-run.sh
+#  /finish/finish_cleanup.sh
 
 set -Eeuo pipefail
 
@@ -11,7 +11,7 @@ log_cleanup()
     printf '[ArchGuard Cleanup] %s\n' "$*"
 }
 
-cleanup_postboot()
+finish_cleanup()
 {
     local username="${1:-}"
     local home
