@@ -10,7 +10,7 @@
 CONFIG_USBGUARD="$ROOT_CONFIG/usbguard"
 
 # Module Entry Points
-"$CONFIG_USBGUARD/config-usbguard.sh"
+source "$CONFIG_USBGUARD/config-usbguard.sh"
 
 # Run
 
