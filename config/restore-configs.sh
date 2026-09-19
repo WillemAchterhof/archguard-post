@@ -1,26 +1,27 @@
 #!/usr/bin/env bash
 
 # ------------------------------------------------------------------------------
-# Config Module Loader
+# Restore Configs
 # ------------------------------------------------------------------------------
-# /config/config-run.sh
+# /config/restore-configs.sh
 # ------------------------------------------------------------------------------
 
-source "$ROOT_CONFIG/config-usbguard.sh"
-source "$ROOT_CONFIG/config-toolkit.sh"
-source "$ROOT_CONFIG/config-files.sh"
+source "$ROOT_CONFIG/../lib/backup-copy.sh"
 
 # ------------------------------------------------------------------------------
 # Run
 # ------------------------------------------------------------------------------
 
-configure_desktop()
+restore_configs()
 {
-    config_usbguard
-    config_toolkit
-    xdg-user-dirs-update
-    restore-configs
+    local repository="$HOME/.archguard/archguard-configs"
+    local config_file="$repository/backup-configs.env"
 
-    systemctl enable sddm.service
-    systemctl enable libvirtd.service
+    printf "[*] Restoring ArchGuard configs...\n"
+
+    restore_copy \
+        "$config_file" \
+        "$repository"
+
+    printf "[*] ArchGuard configs restored.\n"
 }
