@@ -8,7 +8,7 @@
 
 source "$ROOT_CONFIG/config-usbguard.sh"
 source "$ROOT_CONFIG/config-toolkit.sh"
-source "$ROOT_CONFIG/config-files.sh"
+source "$ROOT_CONFIG/restore-configs.sh"
 
 # ------------------------------------------------------------------------------
 # Run
