@@ -9,8 +9,14 @@ source "$ROOT_CONFIG/config-usbguard.sh"
 
 # Run
 
-configure_desktop()
+cconfigure_desktop()
 {
     config_usbguard
-    systemctl enable sddm.service libvirtd.service
+    
+    "$toolkit/archguard-toolkit.sh" --initialize
+    
+    copy_desktop_config_files
+
+    systemctl enable sddm.service
+    systemctl enable libvirtd.service
 }
