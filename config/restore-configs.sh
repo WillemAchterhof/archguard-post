@@ -13,12 +13,12 @@
 
 restore_configs()
 {
-    local repository="$HOME/.archguard/archguard-configs"
+    local repository="$AG_HOME/.archguard/archguard-configs"
     local config_file="$repository/backup-configs.env"
-    local background="$HOME/Pictures/BackGround"
+    local background="$AG_HOME/Pictures/BackGround"
 
     printf "[*] Restoring ArchGuard configs...\n"
-
+s
     restore_copy \
         "$config_file" \
         "$repository"

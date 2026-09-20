@@ -1,15 +1,25 @@
 #!/usr/bin/env bash
 
-# ------------------------------------------------------------------------------
-# ArchGuard Postboot
-# ------------------------------------------------------------------------------
-# /run-postboot.sh
-
 set -Eeuo pipefail
 
+# ------------------------------------------------------------------------------
+# Original login user
+# ------------------------------------------------------------------------------
+
 if [[ $EUID -ne 0 ]]; then
+    export AG_USER="$USER"
+    export AG_HOME="$HOME"
+
     exec sudo "$0" "$@"
 fi
+
+AG_USER="${AG_USER:-${SUDO_USER:-root}}"
+AG_HOME="${AG_HOME:-$(getent passwd "$AG_USER" | cut -d: -f6)}"
+
+export AG_USER AG_HOME
+
+printf '[*] User: %s\n' "$AG_USER"
+printf '[*] Home: %s\n' "$AG_HOME"
 
 export POSTBOOT_ROOT="/opt/archguard"
 

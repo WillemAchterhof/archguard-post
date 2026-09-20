@@ -8,7 +8,7 @@
 
 config_toolkit()
 {
-    local archguard_root="~/.archguard"
+    local archguard_root="$AG_HOME/.archguard"
     local toolkit_repo="https://github.com/WillemAchterhof/archguard-toolkit.git"
     local toolkit_destination="$archguard_root/toolkit"
     local configs_repo="https://github.com/WillemAchterhof/archguard-configs.git"
