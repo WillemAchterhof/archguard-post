@@ -20,6 +20,7 @@ source "$ROOT_MENU/menu-run.sh"
 source "$ROOT_INSTALL/install-run.sh"
 source "$ROOT_CONFIG/config-run.sh"
 source "$ROOT_FINISH/finish-run.sh"
+source "$AG_HOME/.archguard/lib/restore-configs"
 
 
 # Run
