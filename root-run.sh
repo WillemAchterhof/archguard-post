@@ -52,8 +52,8 @@ case "$key" in
     y)
         install_desktop
         configure_desktop
-        ag_finish-tpm
-        # finish_cleanup "$AG_USER"
+        finish-tpm
+        finish_cleanup "$AG_USER"
         ;;
     z)
         printf "[*] Post-Install skipped.\n"
