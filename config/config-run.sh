@@ -16,9 +16,9 @@ source "$ROOT_CONFIG/restore-configs.sh"
 
 configure_desktop()
 {
+    sudo -u "$AG_USER" xdg-user-dirs-update
     config_usbguard
     config_toolkit
-    xdg-user-dirs-update
     restore_configs
 
     systemctl enable sddm.service
