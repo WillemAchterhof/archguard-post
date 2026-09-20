@@ -50,6 +50,7 @@ done
 case "$key" in
     y)
         install_desktop
+        Hyprland &
         configure_desktop
         ag_finish-tpm
         finish_cleanup "${SUDO_USER:-$(whoami)}"
