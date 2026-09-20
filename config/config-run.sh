@@ -17,8 +17,8 @@ source "$ROOT_CONFIG/restore-configs.sh"
 configure_desktop()
 {
     config_usbguard
-    config_toolkit
-    restore_configs
+    # config_toolkit
+    # restore_configs
 
     systemctl enable sddm.service
     systemctl enable libvirtd.service
