@@ -51,7 +51,7 @@ case "$key" in
 
     y)
         install_desktop
-        # configure_desktop
+        sconfigure_desktop
         ag_finish-tpm
         # finish_cleanup "$AG_USER"
         ;;
