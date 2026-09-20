@@ -9,12 +9,12 @@ set -Eeuo pipefail
 readonly PCRS_TPM_AG="0+1+2+4+5+7+12"
 readonly PUBKEY_TPM_AG="/etc/systemd/tpm2-pcr-public-key-initrd.pem"
 
-ag_ag_log_tpm()
+ag_log_tpm()
 {
     printf '[ArchGuard TPM] %s\n' "$*"
 }
 
-ag_ag_get_luks_device()
+get_luks_device()
 {
     local device
 
