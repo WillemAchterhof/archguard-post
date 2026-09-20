@@ -18,7 +18,7 @@ restore_configs()
     local background="$AG_HOME/Pictures/BackGround"
 
     printf "[*] Restoring ArchGuard configs...\n"
-s
+
     restore_copy \
         "$config_file" \
         "$repository"
