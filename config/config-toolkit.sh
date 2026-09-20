@@ -8,25 +8,22 @@
 
 config_toolkit()
 {
-    local toolkit_root="$AG_HOME/.archguard/toolkit"
-    local configs_destination="$toolkit_root/archguard-configs"
-
     local toolkit_repo="https://github.com/WillemAchterhof/archguard-toolkit.git"
     local configs_repo="https://github.com/WillemAchterhof/archguard-configs.git"
 
     printf '[*] Installing ArchGuard Toolkit...\n'
 
-    mkdir -p -- "$toolkit_root"
+    mkdir -p -- "$TOOLKIT_ROOT"
 
     git clone \
         "$toolkit_repo" \
-        "$toolkit_root"
+        "$TOOLKIT_ROOT"
 
     printf '[*] Installing ArchGuard Configs...\n'
 
     git clone \
         "$configs_repo" \
-        "$configs_destination"
+        "$CONFIGS_DESTINATION"
 
     printf '[*] ArchGuard Toolkit configured.\n'
 }

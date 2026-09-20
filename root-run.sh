@@ -13,6 +13,8 @@ ROOT_MENU="$ROOT_POST/menu"
 ROOT_INSTALL="$ROOT_POST/install"
 ROOT_CONFIG="$ROOT_POST/config"
 ROOT_FINISH="$ROOT_POST/finish"
+TOOLKIT_ROOT="$AG_HOME/.archguard/toolkit"
+CONFIGS_DESTINATION="$toolkit_root/archguard-configs"
 
 
 # Module Entry Points
