@@ -13,6 +13,7 @@
 
 restore_configs()
 {
+    local repository="$AG_HOME/.archguard/lib/restore-configs"
     local repository="$AG_HOME/.archguard/archguard-configs"
     local config_file="$repository/backup-configs.env"
     local background="$AG_HOME/Pictures/BackGround"
