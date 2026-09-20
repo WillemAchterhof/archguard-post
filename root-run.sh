@@ -14,7 +14,7 @@ ROOT_INSTALL="$ROOT_POST/install"
 ROOT_CONFIG="$ROOT_POST/config"
 ROOT_FINISH="$ROOT_POST/finish"
 TOOLKIT_ROOT="$AG_HOME/.archguard/toolkit"
-CONFIGS_DESTINATION="$toolkit_root/archguard-configs"
+CONFIGS_DESTINATION="$TOOLKIT_ROOT/archguard-configs"
 
 
 # Module Entry Points
