@@ -51,15 +51,6 @@ case "$key" in
 
     y)
         install_desktop
-
-        sudo -u "$AG_USER" \
-            HOME="$AG_HOME" \
-            xdg-user-dirs-update
-
-        sudo -u "$AG_USER" \
-            HOME="$AG_HOME" \
-            Hyprland &
-
         # configure_desktop
         ag_finish-tpm
         # finish_cleanup "$AG_USER"
