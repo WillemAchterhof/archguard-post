@@ -6,8 +6,8 @@
 
 set -Eeuo pipefail
 
-readonly AG_TPM_PCRS="0+1+2+4+5+7+12"
-readonly AG_TPM_PUBKEY="/etc/systemd/tpm2-pcr-public-key-initrd.pem"
+readonly PCRS_TPM_AG="0+1+2+4+5+7+12"
+readonly PUBKEY_TPM_AG="/etc/systemd/tpm2-pcr-public-key-initrd.pem"
 
 ag_ag_log_tpm()
 {
@@ -36,25 +36,25 @@ ag_finish-tpm()
 
     ag_log_tpm "Starting TPM2 enrollment"
 
-    [[ -f "$AG_TPM_PUBKEY" ]] \
+    [[ -f "$PUBKEY_TPM_AG" ]] \
         || {
-            ag_log_tpm "ERROR: PCR signing public key not found: $AG_TPM_PUBKEY"
+            ag_log_tpm "ERROR: PCR signing public key not found: $PUBKEY_TPM_AG"
             return 1
         }
 
     luks_device="$(ag_get_luks_device)"
 
     ag_log_tpm "LUKS device: $luks_device"
-    ag_log_tpm "Raw PCR policy: $AG_TPM_PCRS"
-    ag_log_tpm "Signed PCR policy (UKI integrity): $AG_TPM_PUBKEY"
+    ag_log_tpm "Raw PCR policy: $PCRS_TPM_AG"
+    ag_log_tpm "Signed PCR policy (UKI integrity): $PUBKEY_TPM_AG"
     ag_log_tpm "Enrolling TPM2 with mandatory PIN"
     ag_log_tpm "You will be prompted for the current LUKS passphrase, then the TPM PIN"
 
     systemd-cryptenroll \
         --tpm2-device=auto \
         --tpm2-with-pin=yes \
-        --tpm2-pcrs="$AG_TPM_PCRS" \
-        --tpm2-public-key="$AG_TPM_PUBKEY" \
+        --tpm2-pcrs="$PCRS_TPM_AG" \
+        --tpm2-public-key="$PUBKEY_TPM_AG" \
         --tpm2-public-key-pcrs=11 \
         "$luks_device"
 
