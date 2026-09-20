@@ -9,12 +9,12 @@ set -Eeuo pipefail
 readonly AG_TPM_PCRS="0+1+2+4+5+7+12"
 readonly AG_TPM_PUBKEY="/etc/systemd/tpm2-pcr-public-key-initrd.pem"
 
-log_tpm()
+ag_ag_log_tpm()
 {
     printf '[ArchGuard TPM] %s\n' "$*"
 }
 
-get_luks_device()
+ag_ag_get_luks_device()
 {
     local device
 
@@ -23,32 +23,32 @@ get_luks_device()
 
     [[ -n "$device" ]] \
         || {
-            log_tpm "ERROR: Unable to determine LUKS device for cryptroot"
+            ag_log_tpm "ERROR: Unable to determine LUKS device for cryptroot"
             return 1
         }
 
     printf '%s\n' "$device"
 }
 
-finish-tpm()
+ag_finish-tpm()
 {
     local luks_device
 
-    log_tpm "Starting TPM2 enrollment"
+    ag_log_tpm "Starting TPM2 enrollment"
 
     [[ -f "$AG_TPM_PUBKEY" ]] \
         || {
-            log_tpm "ERROR: PCR signing public key not found: $AG_TPM_PUBKEY"
+            ag_log_tpm "ERROR: PCR signing public key not found: $AG_TPM_PUBKEY"
             return 1
         }
 
-    luks_device="$(get_luks_device)"
+    luks_device="$(ag_get_luks_device)"
 
-    log_tpm "LUKS device: $luks_device"
-    log_tpm "Raw PCR policy: $AG_TPM_PCRS"
-    log_tpm "Signed PCR policy (UKI integrity): $AG_TPM_PUBKEY"
-    log_tpm "Enrolling TPM2 with mandatory PIN"
-    log_tpm "You will be prompted for the current LUKS passphrase, then the TPM PIN"
+    ag_log_tpm "LUKS device: $luks_device"
+    ag_log_tpm "Raw PCR policy: $AG_TPM_PCRS"
+    ag_log_tpm "Signed PCR policy (UKI integrity): $AG_TPM_PUBKEY"
+    ag_log_tpm "Enrolling TPM2 with mandatory PIN"
+    ag_log_tpm "You will be prompted for the current LUKS passphrase, then the TPM PIN"
 
     systemd-cryptenroll \
         --tpm2-device=auto \
@@ -58,5 +58,5 @@ finish-tpm()
         --tpm2-public-key-pcrs=11 \
         "$luks_device"
 
-    log_tpm "TPM2 enrollment completed"
+    ag_log_tpm "TPM2 enrollment completed"
 }
