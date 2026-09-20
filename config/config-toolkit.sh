@@ -29,6 +29,4 @@ config_toolkit()
         "$configs_destination"
 
     printf '[*] ArchGuard Toolkit configured.\n'
-
-    initialize
 }
