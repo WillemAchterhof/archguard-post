@@ -60,9 +60,9 @@ case "$key" in
             HOME="$AG_HOME" \
             Hyprland &
 
-        configure_desktop
+        # configure_desktop
         ag_finish-tpm
-        finish_cleanup "$AG_USER"
+        # finish_cleanup "$AG_USER"
         ;;
     z)
         printf "[*] Post-Install skipped.\n"
