@@ -48,14 +48,22 @@ while true; do
 done
 
 case "$key" in
+
     y)
         install_desktop
-        Hyprland &
+
+        sudo -u "$AG_USER" \
+            HOME="$AG_HOME" \
+            xdg-user-dirs-update
+
+        sudo -u "$AG_USER" \
+            HOME="$AG_HOME" \
+            Hyprland &
+
         configure_desktop
         ag_finish-tpm
-        finish_cleanup "${SUDO_USER:-$(whoami)}"
+        finish_cleanup "$AG_USER"
         ;;
-
     z)
         printf "[*] Post-Install skipped.\n"
         printf "Do you want to cleanup postboot? [y/N] "
