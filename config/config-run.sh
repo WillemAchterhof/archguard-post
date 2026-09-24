@@ -20,13 +20,14 @@ configure_desktop()
     # config_toolkit
     # restore_configs
 
-    local background="$HOME/Pictures/BackGround"
-
-    mkdir -p -- "$background"
-
-    cp \
-        /opt/archguard/backup/ArchGuard.png \
-        "$background/ArchGuard.png"
+    local source="/opt/archguard/backup/ArchGuard.png"
+    local destination="$HOME/Pictures/BackGround"
+    
+    mkdir -p -- "$destination"
+    
+    if [[ -f "$source" ]]; then
+        cp "$source" "$destination/ArchGuard.png"
+    fi
 
     systemctl enable sddm.service
     systemctl enable libvirtd.service
