@@ -16,6 +16,7 @@ source "$ROOT_CONFIG/restore-configs.sh"
 
 configure_desktop()
 {
+    xdg-user-dirs-update
     config_usbguard
     config_toolkit
     # restore_configs
