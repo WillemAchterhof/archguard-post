@@ -17,7 +17,7 @@ source "$ROOT_CONFIG/restore-configs.sh"
 configure_desktop()
 {
     config_usbguard
-    # config_toolkit
+    config_toolkit
     # restore_configs
 
     local source="/opt/archguard/backup/ArchGuard.png"
