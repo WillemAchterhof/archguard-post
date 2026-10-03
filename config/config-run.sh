@@ -32,4 +32,6 @@ configure_desktop()
 
     systemctl enable sddm.service
     systemctl enable libvirtd.service
+
+    chsh -s $(which zsh)
 }
